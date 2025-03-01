@@ -10,7 +10,7 @@ async function main() {
   // 清除以前的打包文件
   removeSync(dist)
 
-  await exec('pnpm build')
+  await exec('pnpm rslib build')
 
   // 将README.md拷贝到包中
   copySync('./README.md', `${dist}/README.md`)
