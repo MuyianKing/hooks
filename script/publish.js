@@ -1,12 +1,17 @@
 import process from 'node:process'
 import { exec } from '@muyianking/build'
-import { copySync } from 'fs-extra/esm'
+import { copySync, removeSync } from 'fs-extra/esm'
 import { getVersion, reWriteVersion } from './utils.js'
 
 const root = process.cwd()
 
 // 发布入口
 async function main() {
+  // 清除以前的打包文件
+  removeSync(`${root}/dist`)
+
+  await exec('pnpm build')
+
   // 将README.md拷贝到包中
   copySync('./README.md', `${root}/dist/README.md`)
 
