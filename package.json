@@ -2,6 +2,16 @@
   "name": "@muyinaking/hooks",
   "type": "module",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MuyianKing/hooks.git"
+  },
+  "keywords": [
+    "MIT",
+    "vue3",
+    "hooks",
+    "typescript"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -56,5 +66,9 @@
     "*.{js,ts,vue}": [
       "eslint --fix"
     ]
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
