@@ -18,6 +18,8 @@
     "source.organizeImports": "never"
   },
 
+  "css.customData": [".vscode/tailwindcss.json"],
+
   "eslint.rules.customizations": [
     {
       "rule": "style/*",

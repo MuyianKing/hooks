@@ -29,19 +29,12 @@ export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElemen
       real_dom.style.height = '0'
       real_dom.getBoundingClientRect()
       real_dom.style.height = `${height}px`
-
-      // 添加展开样式
-      options?.activeClass && real_dom.classList.add(options?.activeClass)
-      options?.inactiveClass && real_dom.classList.remove(options?.inactiveClass)
     } else {
       // 收起
       const { height } = real_dom.getBoundingClientRect()
       real_dom.style.height = `${height}px`
       real_dom.getBoundingClientRect()
       real_dom.style.height = '0'
-      options?.activeClass && real_dom.classList.remove(options?.activeClass)
-      // 添加收起样式
-      options?.inactiveClass && real_dom.classList.add(options?.inactiveClass)
     }
   }
 
@@ -58,12 +51,10 @@ export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElemen
   } else {
     // 要等待dom挂在后才能开启监听
     watch(dom, (val) => {
-      if (val) {
-        real_dom = val
-        startWatch()
-      }
+      real_dom = val
+      startWatch()
     }, {
-      once: true,
+      deep: true,
     })
   }
 
@@ -76,5 +67,5 @@ export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElemen
 }
 
 export {
-  useAutoHeightAnimation
+  useAutoHeightAnimation,
 }

@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2023",
+      "dom"
+    ],
+    "moduleDetection": "force",
+    "module": "ESNext",
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@layout/*": [
+        "./src/layout/*"
+      ],
+      "@views/*": [
+        "./src/views/*"
+      ],
+      "@pinia/*": [
+        "./src/pinia/modules/*"
+      ],
+      "@comp/*": [
+        "./src/components/*"
+      ]
+    },
+    "types": [
+      "vite/client",
+      "element-plus/global"
+    ],
+    "allowImportingTsExtensions": true,
+    /* Linting */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noUncheckedSideEffectImports": true
+  }
+}

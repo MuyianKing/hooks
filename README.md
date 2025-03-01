@@ -1,7 +1,7 @@
-<h1 align="center">@muyianking/ui</h1>
+<h1 align="center">@muyianking/hooks</h1>
 
 <p align="center">
-@muyianking/ui
+@muyianking/hooks
 </p>
 
 <p align="center">

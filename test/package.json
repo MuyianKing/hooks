@@ -1,0 +1,23 @@
+{
+  "name": "ui-test",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host"
+  },
+  "dependencies": {
+    "@iconify/vue": "^4.3.0",
+    "@muyianking/_hooks": "workspace:*",
+    "@types/lodash-es": "^4.17.12",
+    "@vueuse/core": "^12.5.0",
+    "element-plus": "^2.9.5",
+    "lodash-es": "^4.17.21",
+    "pinia": "^2.3.1",
+    "pinia-plugin-persistedstate": "^4.2.0",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "tailwindcss": "3.4.17",
+    "vite": "^6.2.0"
+  }
+}
