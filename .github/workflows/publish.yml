@@ -2,6 +2,7 @@ name: npm publish
 
 # 发布版本触发
 on:
+  workflow_dispatch:
   push:
     tags:
       - v*
@@ -19,6 +20,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 22.x
+
+      - name: "安装pnpm"
+        uses: pnpm/action-setup@v2
+        with:
+          version: "latest"
+
+      - name: pnpm i
+        run: |
+          pnpm i
+      
+      - name: pnpm build
+        run: |
+          pnpm build
           
       - name: Set Publishing Config
         run: npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"

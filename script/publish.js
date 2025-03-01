@@ -1,45 +1,77 @@
-import process from 'node:process'
-import { exec } from '@muyianking/build'
-import { copySync, removeSync } from 'fs-extra/esm'
-import { getVersion, reWriteVersion } from './utils.js'
+import path from 'node:path'
+import { exec, getDir, getParams, showLog } from '@muyianking/build'
+import { readJsonSync, writeJsonSync } from 'fs-extra/esm'
+import inquirer from 'inquirer'
 
-const root = process.cwd()
+import ora from 'ora'
 
-// 发布入口
-async function main() {
-  // 清除以前的打包文件
-  removeSync(`${root}/dist`)
+const __dirname = getDir(import.meta.url)
 
-  await exec('pnpm build')
+async function build() {
+  const spinner = ora(`update package.json`).start()
+  const package_path = path.resolve(__dirname, '../../package.json')
+  const _config = readJsonSync(package_path)
 
-  // 将README.md拷贝到包中
-  copySync('./README.md', `${root}/dist/README.md`)
+  let version = `v${_config.version}`
+  const params = getParams()
 
-  // 将LICENSE拷贝到包中
-  copySync('./LICENSE', `${root}/dist/LICENSE`)
-
-  // 读取版本号
-  const { version, from } = getVersion(`${root}/package.json`)
-
-  // 从命令行读取的版本需要回写package.json
-  if (from !== 'package') {
-    reWriteVersion(`${root}/package.json`, version)
+  // 如果外部传入版本号则以外部为准
+  if (params.v) {
+    version = `v${params.v}`
+    _config.version = params.v
+    writeJsonSync(package_path, _config, {
+      spaces: 2,
+    })
   }
+  spinner.succeed('update package.json successfully')
 
-  // 将package.json拷贝到包中
-  copySync('./package.json', `${root}/dist/package.json`)
-
-  // 生成changelog.md
-  await exec('pnpm log')
-
-  const _version = `v${version}`
-
-  // git commit
-  await exec('git add .')
-  await exec(`git commit -m"release: :package: ${_version}"`)
-
-  // git提交并生成版本tag
-  await exec(`git push && git tag ${_version} && git push origin ${_version}`)
+  try {
+    spinner.succeed('create package.json')
+    showLog(spinner, 'create log')
+    await exec('pnpm log')
+    spinner.succeed('create log')
+    showLog(spinner, 'git add .')
+    await exec('git add .')
+    spinner.succeed('git add .')
+    showLog(spinner, 'git commit')
+    await exec(`git commit -m"release: :package: ${version}"`)
+    spinner.succeed('git commit')
+    showLog(spinner, 'git push && git tag && git push')
+    await exec(`git push && git tag ${version} && git push origin ${version}`)
+    spinner.succeed('git push && git tag && git push')
+    spinner.succeed('publish successful, waiting for GitHub to automatically Release it to npm')
+  } catch (error) {
+    spinner.fail('spinner')
+    console.log(error)
+  }
 }
 
-main()
+// 打包确认
+function inquirerPrompt() {
+  return new Promise((resolve, reject) => {
+    inquirer.prompt([
+      {
+        type: 'list',
+        name: 'release',
+        message: '您确定切换到主分支并合并了最新的代码？',
+        choices: ['是', '否'],
+        filter(value) {
+          return {
+            是: '1',
+            否: '2',
+          }[value]
+        },
+      },
+    ]).then((answers) => {
+      resolve(answers)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
+inquirerPrompt().then(({ release }) => {
+  if (release === '1') {
+    build()
+  }
+})
