@@ -1,3 +1,28 @@
+<h1 align="center">@muyianking/ui</h1>
+
+<p align="center">
+@muyianking/ui
+</p>
+
+<p align="center">
+  <a target="_blank" href="https://www.npmjs.com/package/@muyianking/hooks" style="text-decoration: none;"><img  src="https://img.shields.io/npm/v/%40muyianking%2Fhooks"/></a>
+  <a target="_blank" href="https://www.npmjs.com/package/@muyianking/hooks" style="text-decoration: none;"><img  src="https://img.shields.io/npm/dm/%40muyianking%2Fhooks"/></a>
+</p>
+
+## 安装
+
+```bash
+npm i @muyianking/hooks
+```
+
+```bash
+yarn add @muyianking/hooks
+```
+
+```bash
+pnpm i @muyianking/hooks
+```
+
 ## Contributors
 
 <!-- readme: collaborators,contributors -start -->
