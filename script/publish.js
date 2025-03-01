@@ -26,8 +26,7 @@ async function main() {
     reWriteVersion(`${root}/package.json`, version)
   }
 
-  // 回写dist的package.json
-  // 将LICENSE拷贝到包中
+  // 将package.json拷贝到包中
   copySync('./package.json', `${root}/dist/package.json`)
 
   // 生成changelog.md
