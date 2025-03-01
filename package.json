@@ -18,7 +18,7 @@
     "dev": "rslib build --watch",
     "update-deps": "npm-check-updates && ncu -u && pnpm i",
     "commit": "git add . && git cz",
-    "publish": "node ./script/publish.js",
+    "release": "node ./script/publish.js",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
@@ -39,7 +39,9 @@
     "eslint-plugin-format": "^1.0.1",
     "fs-extra": "^11.3.0",
     "husky": "^9.1.7",
+    "inquirer": "^12.4.2",
     "lint-staged": "^15.4.3",
+    "ora": "^8.2.0",
     "typescript": "^5.8.2"
   },
   "resolutions": {
