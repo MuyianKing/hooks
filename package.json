@@ -17,7 +17,9 @@
     "build": "rslib build",
     "dev": "rslib build --watch",
     "update-deps": "npm-check-updates && ncu -u && pnpm i",
-    "commit": "git add . && git cz"
+    "commit": "git add . && git cz",
+    "publish": "node ./script/publish.js",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
     "vue": "^3.5.13"
@@ -27,18 +29,18 @@
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/eslintrc": "^3.3.0",
-    "@muyianking/build": "^0.0.2",
+    "@muyianking/build": "^0.0.4",
     "@muyianking/config": "^0.0.8",
     "@rslib/core": "^0.5.2",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.8.1",
+    "@types/node": "^22.13.7",
     "cz-git": "^1.11.0",
     "eslint": "^9.21.0",
     "eslint-plugin-format": "^1.0.1",
     "fs-extra": "^11.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china"

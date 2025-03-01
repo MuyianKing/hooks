@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  bin-wrapper: npm:bin-wrapper-china
+
 importers:
 
   .:
@@ -25,8 +28,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0
       '@muyianking/build':
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: ^0.0.4
+        version: 0.0.4
       '@muyianking/config':
         specifier: ^0.0.8
         version: 0.0.8(@types/node@22.13.7)(@typescript-eslint/utils@8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2))(@vue/compiler-sfc@3.5.13)(jiti@2.4.2)(typescript@5.8.2)
@@ -37,7 +40,7 @@ importers:
         specifier: ^11.0.4
         version: 11.0.4
       '@types/node':
-        specifier: ^22.8.1
+        specifier: ^22.13.7
         version: 22.13.7
       cz-git:
         specifier: ^1.11.0
@@ -58,7 +61,7 @@ importers:
         specifier: ^15.4.3
         version: 15.4.3
       typescript:
-        specifier: ^5.7.3
+        specifier: ^5.8.2
         version: 5.8.2
 
 packages:
@@ -430,8 +433,8 @@ packages:
   '@module-federation/webpack-bundler-runtime@0.8.4':
     resolution: {integrity: sha512-HggROJhvHPUX7uqBD/XlajGygMNM1DG0+4OAkk8MBQe4a18QzrRNzZt6XQbRTSG4OaEoyRWhQHvYD3Yps405tQ==}
 
-  '@muyianking/build@0.0.2':
-    resolution: {integrity: sha512-pqdxHNEwPXdFFsvfpxdqjOvXK6VfOyeXEIIvfIrfbMlOjQNGJbEas9xiQFm7aU/CNSwE2aYbjo7/hRJHzUjGRQ==}
+  '@muyianking/build@0.0.4':
+    resolution: {integrity: sha512-nJ1iULYaG1hJLuAK3d1PSpoYDmA9ebmVm6qWHNP7xvDt7n43sy4kq/MxLEW5E3SR8K1Wy24hXznBMpw7tCi4+g==}
 
   '@muyianking/config@0.0.8':
     resolution: {integrity: sha512-NJozyzcAdb0K1dYCsK3Dwm1s14si0zM/hh5IKTji0s3MrxvSEV32GXUfrRj2naPNsBXkkKYQHSYWXO2AJOs5TQ==}
@@ -2712,7 +2715,7 @@ snapshots:
       '@module-federation/runtime': 0.8.4
       '@module-federation/sdk': 0.8.4
 
-  '@muyianking/build@0.0.2':
+  '@muyianking/build@0.0.4':
     dependencies:
       fs-extra: 11.3.0
 
