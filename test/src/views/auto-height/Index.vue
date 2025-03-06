@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useAutoHeightAnimation } from '@muyianking/_hooks'
-import { ref } from 'vue'
+import { useTemplateRef } from 'vue'
 
-const body_ref = ref()
+const body_ref = useTemplateRef('body_ref')
 const { toggle, status } = useAutoHeightAnimation(body_ref, {
   init: false,
 })

@@ -11,7 +11,7 @@ interface Options {
  * @param options 配置
  * @param options.init status的初始值
  */
-export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElement>, options?: Options) {
+export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElement | undefined | null>, options?: Options) {
   let real_dom: HTMLElement
 
   // 展开收起状态
@@ -47,8 +47,10 @@ export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElemen
   } else {
     // 要等待dom挂在后才能开启监听
     watch(dom, (val) => {
-      real_dom = val
-      startWatch()
+      if (val) {
+        real_dom = val
+        startWatch()
+      }
     })
   }
 
