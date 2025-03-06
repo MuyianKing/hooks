@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { useAutoHeightAnimation } from '@muyianking/_hooks'
-import { ElButton } from 'element-plus'
 import { ref } from 'vue'
-import 'element-plus/theme-chalk/el-button.css'
 
 const body_ref = ref()
 const { toggle, status } = useAutoHeightAnimation(body_ref, {
-  inactiveClass: 'inexpand-item',
-  init: true,
+  init: false,
 })
 </script>
 

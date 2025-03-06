@@ -3,8 +3,6 @@ import { ref, watch } from 'vue'
 
 interface Options {
   init?: boolean
-  activeClass?: string
-  inactiveClass?: string
 }
 
 /**
@@ -12,8 +10,6 @@ interface Options {
  * @param dom 操作的区域dom或dom的Ref对象
  * @param options 配置
  * @param options.init status的初始值
- * @param options.activeClass 展开时希望添加的类名
- * @param options.inactiveClass 收起时希望添加的类名
  */
 export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElement>, options?: Options) {
   let real_dom: HTMLElement
@@ -53,8 +49,6 @@ export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElemen
     watch(dom, (val) => {
       real_dom = val
       startWatch()
-    }, {
-      deep: true,
     })
   }
 
