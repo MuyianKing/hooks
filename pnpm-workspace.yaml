@@ -1,3 +1,8 @@
 packages:
   - hooks/**
   - test/**
+
+ignoredBuiltDependencies:
+  - core-js
+  - esbuild
+  - vue-demi

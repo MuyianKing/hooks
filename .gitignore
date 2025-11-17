@@ -31,3 +31,6 @@ test-temp-*
 .env.*.local
 
 examples/**
+
+components.d.ts
+auto-imports.d.ts

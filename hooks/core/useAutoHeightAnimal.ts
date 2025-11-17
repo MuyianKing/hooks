@@ -2,7 +2,15 @@ import type { Ref } from 'vue'
 import { ref, watch } from 'vue'
 
 interface Options {
+  // status的初始值
   init?: boolean
+}
+
+interface AutoHeightReturns {
+  // true-展开  false-收起
+  status: Ref<boolean>
+  // 切换展开收起的方法
+  toggle: () => void
 }
 
 /**
@@ -11,7 +19,7 @@ interface Options {
  * @param options 配置
  * @param options.init status的初始值
  */
-export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElement | undefined | null>, options?: Options) {
+export default function useAutoHeightAnimation(dom: HTMLElement | Ref<HTMLElement | undefined | null>, options?: Options): AutoHeightReturns {
   let real_dom: HTMLElement
 
   // 展开收起状态

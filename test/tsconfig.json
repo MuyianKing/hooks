@@ -27,8 +27,8 @@
       ]
     },
     "types": [
-      "vite/client",
-      "element-plus/global"
+      "./node_modules/vite/client",
+      "./node_modules/element-plus/global"
     ],
     "allowImportingTsExtensions": true,
     /* Linting */

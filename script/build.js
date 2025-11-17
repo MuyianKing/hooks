@@ -1,6 +1,9 @@
+import path from 'node:path'
 import process from 'node:process'
-import { exec } from '@muyianking/build'
-import { copySync, removeSync } from 'fs-extra/esm'
+import { exec, getDir } from '@muyianking/build'
+import { copySync, readJsonSync, removeSync, writeJsonSync } from 'fs-extra/esm'
+
+const __dirname = getDir(import.meta.url)
 
 const root = process.cwd()
 const dist = `${root}/dist`
@@ -19,7 +22,17 @@ async function main() {
   copySync('./LICENSE', `${dist}/LICENSE`)
 
   // 将package.json拷贝到包中
-  copySync('./package.json', `${dist}/package.json`)
+  const package_path = path.resolve(__dirname, '../../package.json')
+  const _config = readJsonSync(package_path);
+
+  // 删除不需要的配置
+  ['scripts', 'devDependencies', 'config', 'lint-staged', 'publishConfig', 'resolutions'].forEach((key) => {
+    delete _config[key]
+  })
+
+  writeJsonSync(path.resolve(__dirname, `${dist}/package.json`), _config, {
+    spaces: 2,
+  })
 }
 
 main()
