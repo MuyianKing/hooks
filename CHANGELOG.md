@@ -1,3 +1,9 @@
+## <small>0.0.4 (2025-11-17)</small>
+
+* build: :package: 修复pnpm build选项不显示问题 ([c26d57e](https://github.com/MuyianKing/hooks/commit/c26d57e))
+
+
+
 ## <small>0.0.2 (2025-11-17)</small>
 
 * release: :package: v0.0.1 ([8bb8305](https://github.com/MuyianKing/hooks/commit/8bb8305))
