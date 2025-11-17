@@ -51,16 +51,10 @@ function inquirerPrompt() {
   return new Promise((resolve, reject) => {
     inquirer.prompt([
       {
-        type: 'list',
-        name: 'release',
+        type: 'confirm',
+        name: 'hasUpdate',
         message: '您确定切换到主分支并合并了最新的代码？',
         choices: ['是', '否'],
-        filter(value) {
-          return {
-            是: '1',
-            否: '2',
-          }[value]
-        },
       },
     ]).then((answers) => {
       resolve(answers)
@@ -70,8 +64,8 @@ function inquirerPrompt() {
   })
 }
 
-inquirerPrompt().then(({ release }) => {
-  if (release === '1') {
+inquirerPrompt().then(({ hasUpdate }) => {
+  if (hasUpdate) {
     build()
   }
 })
