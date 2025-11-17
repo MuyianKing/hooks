@@ -1,3 +1,16 @@
+## <small>0.0.2 (2025-11-17)</small>
+
+* release: :package: v0.0.1 ([8bb8305](https://github.com/MuyianKing/hooks/commit/8bb8305))
+* style: :lipstick: 保留代码中的注释以及不压缩代码 ([e31b24f](https://github.com/MuyianKing/hooks/commit/e31b24f))
+* style: :lipstick: vue/component-name-in-template-casing 变更为kebab-case ([90b81d4](https://github.com/MuyianKing/hooks/commit/90b81d4))
+* build: :package: 更新以来及相关配置 ([cf3299a](https://github.com/MuyianKing/hooks/commit/cf3299a))
+* fix: :bug: 删除useAutoHeightAnimation无用配置 ([6cd8926](https://github.com/MuyianKing/hooks/commit/6cd8926))
+* fix: :bug: 修复useAutoHeightAnimation类型报错问题 ([7f45612](https://github.com/MuyianKing/hooks/commit/7f45612))
+* refactor: :recycle: 项目构建方式改为monorepo，增加测试项目 ([bca4379](https://github.com/MuyianKing/hooks/commit/bca4379))
+* docs: :memo: 补充REDAME.md ([753937d](https://github.com/MuyianKing/hooks/commit/753937d))
+
+
+
 ## 0.0.1 (2025-03-01)
 
 
