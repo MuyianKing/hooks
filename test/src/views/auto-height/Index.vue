@@ -10,9 +10,9 @@ const { toggle, status } = useAutoHeightAnimation(body_ref, {
 
 <template>
   <div class="p-4">
-    <ElButton type="primary" class="mb-4" @click="toggle">
+    <el-button type="primary" class="mb-4" @click="toggle">
       {{ status ? '收起' : "展开" }}
-    </ElButton>
+    </el-button>
     <div ref="body_ref" class="auto-wrapper">
       <div class="p-4">
         <div v-for="item in 10" :key="item">
