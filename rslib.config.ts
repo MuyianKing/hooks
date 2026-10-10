@@ -24,7 +24,7 @@ export default defineConfig({
   },
   source: {
     entry: {
-      index: './hooks/index.ts',
+      index: './index.ts',
     },
   },
 })

@@ -1,3 +1,5 @@
+## [0.0.5](https://github.com/MuyianKing/hooks/compare/v0.0.4...v0.0.5) (2026-10-10)
+
 ## <small>0.0.4 (2025-11-17)</small>
 
 * build: :package: 修复pnpm build选项不显示问题 ([c26d57e](https://github.com/MuyianKing/hooks/commit/c26d57e))
