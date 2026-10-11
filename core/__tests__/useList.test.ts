@@ -32,7 +32,7 @@ describe('useList', () => {
     await vi.advanceTimersByTimeAsync(300)
     expect(server).toHaveBeenCalledTimes(1)
 
-    result.query.name = 'b'
+    result.query.value.name = 'b'
     await vi.advanceTimersByTimeAsync(300)
 
     expect(server).toHaveBeenCalledTimes(2)

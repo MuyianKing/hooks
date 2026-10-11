@@ -31,8 +31,8 @@ function useList(params: {
   // 请求或更新数据出错时的回调，不配置默认 console.error
   onError?: (e: unknown, msg: string) => void
 }): {
-  // 查询条件
-  query: Record<string, any>
+  // 查询条件（ref 定义，脚本中通过 .value 访问，模板中自动解包）
+  query: Ref<Record<string, any>>
   // 分页参数
   page_query: { page: number, limit: number }
   // 获取数据的方法
@@ -65,7 +65,7 @@ function useList(params: {
 
 | 属性       | 类型                                       | 说明                                                             |
 | ---------- | ------------------------------------------ | ---------------------------------------------------------------- |
-| query      | `Record<string, any>`                      | 响应式查询条件（不含分页字段）                                   |
+| query      | `Ref<Record<string, any>>`                 | 响应式查询条件（不含分页字段），脚本中通过 `query.value` 访问    |
 | page_query | `{ page: number, limit: number }`          | 响应式分页参数，初始值取 `query.page`/`query.limit`，默认 1 / 20 |
 | getData    | `(options?: { append?: boolean }) => void` | 获取数据，内置 300ms 防抖；`append: true` 时将新数据累加到列表   |
 | search     | `() => void`                               | 搜索：分页重置为第 1 页后获取数据                                |
@@ -87,6 +87,9 @@ const { query, page_query, search, getData, updateOne, table_data, loading } = u
 // 条件搜索：分页重置为第 1 页
 search()
 
+// 修改查询条件（脚本中需通过 .value，模板中会自动解包）
+query.value.name = '张三'
+
 // 翻页
 page_query.page += 1
 
@@ -104,4 +107,5 @@ updateOne({ id: 1 }, (row) => {
 ## 注意事项
 
 - 依赖 `onMounted` 与 `watch`，需在 setup 中调用。
+- query 为 ref 定义，脚本中读写需通过 `query.value`，模板中会自动解包。
 - 查询参数与分页参数变化后的自动请求均有 300ms 防抖。

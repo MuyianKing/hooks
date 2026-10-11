@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import type { ListData } from './useListRequest.ts'
-import { nextTick, onMounted, reactive, watch } from 'vue'
+import { nextTick, onMounted, reactive, ref, watch } from 'vue'
 import useListRequest from './useListRequest.ts'
 
 interface UseListParams {
@@ -30,8 +30,8 @@ interface PageQuery {
 }
 
 interface UseListReturns {
-  // 查询条件
-  query: Record<string, any>
+  // 查询条件（ref 定义，脚本中通过 .value 访问，模板中自动解包）
+  query: Ref<Record<string, any>>
   // 分页参数
   page_query: PageQuery
   // 获取数据的方法
@@ -112,7 +112,7 @@ export default function useList(params: UseListParams): UseListReturns {
   delete query.page
   delete query.limit
 
-  const query_ref = reactive(query)
+  const query_ref = ref<Record<string, any>>(query)
 
   const { loading, list_data, getList } = useListRequest(server)
 
@@ -126,7 +126,7 @@ export default function useList(params: UseListParams): UseListReturns {
       const append = options?.append || false
       await nextTick()
       await getList({
-        ...query_ref,
+        ...query_ref.value,
         ...page_query,
       }, {
         append,
