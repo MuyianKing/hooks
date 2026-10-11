@@ -1,3 +1,9 @@
+## [0.0.6](https://github.com/MuyianKing/hooks/compare/v0.0.5...v0.0.6) (2026-10-11)
+
+### Features
+
+* :sparkles: useList 查询条件 query 改为 ref 定义 ([a5d188a](https://github.com/MuyianKing/hooks/commit/a5d188a9c7ea220d61071a8dfb005279a80fc5e4))
+
 ## [0.0.5](https://github.com/MuyianKing/hooks/compare/v0.0.4...v0.0.5) (2026-10-10)
 
 ## <small>0.0.4 (2025-11-17)</small>
