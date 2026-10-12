@@ -40,6 +40,7 @@ function usePageRequest<T extends Record<string, any> = Record<string, any>>(
 
 ## 参数
 
+
 | 参数            | 类型                                | 默认值           | 说明                                      |
 | --------------- | ----------------------------------- | ---------------- | ----------------------------------------- |
 | server          | `(params?: any) => Promise<any>`    | 必填             | 接口方法                                  |
@@ -49,6 +50,7 @@ function usePageRequest<T extends Record<string, any> = Record<string, any>>(
 | options.onError | `(e: unknown, msg: string) => void` | `console.error`  | 请求出错时的回调                          |
 
 ## 返回值
+
 
 | 属性    | 类型                  | 说明                                                                           |
 | ------- | --------------------- | ------------------------------------------------------------------------------ |
