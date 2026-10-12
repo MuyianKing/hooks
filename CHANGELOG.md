@@ -1,3 +1,9 @@
+## [0.0.7](https://github.com/MuyianKing/hooks/compare/v0.0.6...v0.0.7) (2026-10-12)
+
+### Bug Fixes
+
+* :bug: 优化usePageList ([dd133d3](https://github.com/MuyianKing/hooks/commit/dd133d339e1d4edd49f66b25e218fc86a21f6b68))
+
 ## [0.0.6](https://github.com/MuyianKing/hooks/compare/v0.0.5...v0.0.6) (2026-10-11)
 
 ### Features
