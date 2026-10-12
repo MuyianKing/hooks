@@ -8,10 +8,10 @@
 import { useList } from '@muyianking/hooks'
 ```
 
-## 签名
+## 类型
 
 ```ts
-function useList(params: {
+interface UseListParams {
   // 查询参数，page/limit 会作为分页参数单独管理并从 query 中移除
   query?: Record<string, any>
   // 请求后台的方法
@@ -30,11 +30,18 @@ function useList(params: {
   oneServerKey?: string
   // 请求或更新数据出错时的回调，不配置默认 console.error
   onError?: (e: unknown, msg: string) => void
-}): {
+}
+
+interface PageQuery {
+  page: number
+  limit: number
+}
+
+interface UseListReturns {
   // 查询条件（ref 定义，脚本中通过 .value 访问，模板中自动解包）
   query: Ref<Record<string, any>>
   // 分页参数
-  page_query: { page: number, limit: number }
+  page_query: PageQuery
   // 获取数据的方法
   getData: (options?: { append?: boolean }) => void
   // 搜索方法：添加防抖且每次会将分页重置为第 1 页
@@ -45,6 +52,8 @@ function useList(params: {
   table_data: ListData
   loading: Ref<boolean>
 }
+
+function useList(params: UseListParams): UseListReturns
 ```
 
 ## 参数

@@ -8,21 +8,25 @@
 import { useAutoHeightAnimation } from '@muyianking/hooks'
 ```
 
-## 签名
+## 类型
 
 ```ts
-function useAutoHeightAnimation(
-  dom: HTMLElement | Ref<HTMLElement | undefined | null>,
-  options?: {
-    // status的初始值
-    init?: boolean
-  }
-): {
+interface Options {
+  // status的初始值
+  init?: boolean
+}
+
+interface AutoHeightReturns {
   // true-展开  false-收起
   status: Ref<boolean>
   // 切换展开收起的方法
   toggle: () => void
 }
+
+function useAutoHeightAnimation(
+  dom: HTMLElement | Ref<HTMLElement | undefined | null>,
+  options?: Options,
+): AutoHeightReturns
 ```
 
 ## 参数

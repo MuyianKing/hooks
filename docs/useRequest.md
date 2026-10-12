@@ -8,13 +8,15 @@
 import { useRequest } from '@muyianking/hooks'
 ```
 
-## 签名
+## 类型
 
 ```ts
-function useRequest(server: (params?: any) => Promise<any>): {
+interface RequestReturns {
   request: (params?: any) => Promise<any>
   loading: Ref<boolean>
 }
+
+function useRequest(server: (params?: any) => Promise<any>): RequestReturns
 ```
 
 ## 参数

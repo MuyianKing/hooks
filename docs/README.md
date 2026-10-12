@@ -15,7 +15,7 @@ pnpm i @muyianking/hooks
 | useAutoHeightAnimation | 使高度自适应的区域也能拥有展开收起的动画            | [useAutoHeightAnimation.md](./useAutoHeightAnimation.md) |
 | useList                | 列表页逻辑：查询条件、分页、防抖搜索、更新单行      | [useList.md](./useList.md)                               |
 | useListRequest         | 分页列表查询：loading、列表数据、数据累加、自动序号 | [useListRequest.md](./useListRequest.md)                 |
-| usePageRequest         | 页面查询：响应式数据、挂载后自动执行                | [usePageRequest.md](./usePageRequest.md)                 |
+| usePageRequest         | 页面查询：查询条件、响应式数据、挂载后自动执行      | [usePageRequest.md](./usePageRequest.md)                 |
 | useRequest             | 普通请求：手动触发、loading 状态                    | [useRequest.md](./useRequest.md)                         |
 
 ## 约定

@@ -8,24 +8,9 @@
 import { useListRequest } from '@muyianking/hooks'
 ```
 
-## 签名
+## 类型
 
 ```ts
-function useListRequest(server: (params?: any) => Promise<any>): {
-  loading: Ref<boolean>
-  list_data: ListData
-  getList: (
-    // 分页参数 page/limit 与查询参数，会整体传给 server
-    params: { page: number, limit: number } & Record<string, any>,
-    options?: {
-      // 是否将当前从接口中获取的数据累加到 data 中
-      append?: boolean
-      // 需要额外从接口中获取的字段
-      data_extend_keys?: string[]
-    }
-  ) => Promise<void>
-}
-
 interface ListData {
   // 数据总量
   count: number
@@ -34,6 +19,25 @@ interface ListData {
   // data_extend_keys 中配置的额外字段
   [key: string]: any
 }
+
+interface GetListOptions {
+  // 是否将当前从接口中获取的数据累加到 data 中
+  append?: boolean
+  // 需要额外从接口中获取的字段
+  data_extend_keys?: string[]
+}
+
+interface ListRequestReturns {
+  loading: Ref<boolean>
+  list_data: ListData
+  getList: (
+    // 分页参数 page/limit 与查询参数，会整体传给 server
+    params: { page: number, limit: number } & Record<string, any>,
+    options?: GetListOptions,
+  ) => Promise<void>
+}
+
+function useListRequest(server: (params?: any) => Promise<any>): ListRequestReturns
 ```
 
 ## 参数
