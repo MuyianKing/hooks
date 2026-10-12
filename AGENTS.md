@@ -33,7 +33,7 @@
 
 - 每个 hook 一个文件放 core/，文件名与导出函数同名（useXxx 驼峰），风格参照 core/useAutoHeightAnimal.ts。
 - 新增 hook 必须在根目录 index.ts 用 export * from "./core/xxx.ts" 汇出，并提供 default 与具名双导出。
-- 测试放 core/__tests__/useXxx.test.ts，公共测试工具放同目录 test-utils.ts。
+- 测试放 `core/__tests__/useXxx.test.ts`，公共测试工具放同目录 test-utils.ts。
 - 文档放 docs/：docs/README.md 为索引，每个 hook 一份 docs/useXxx.md；改动 hook 的参数、返回值或行为后必须同步更新文档与索引。
 - 构建、发布等 Node 脚本放 script/，不在根目录散落脚本。
 - 产物只输出到 dist/ 并已 gitignore，禁止直接修改 dist/ 下文件；CHANGELOG.md 由脚本生成，禁止手工编辑。
@@ -55,5 +55,5 @@
 
 - 提交信息遵循 Conventional Commits（commitlint + cz-git），沿用 type: :emoji: 描述风格，如 build: :package:、style: :lipstick:；交互式提交用 pnpm commit。
 - 项目没有 lint 脚本，校验与修复改动执行 npx eslint --fix；lint-staged 虽有配置，但 .husky/pre-commit 为空文件，提交时不会触发。
-- 跑测试执行 pnpm test（vitest run）；新增或修改 hook 时在 core/__tests__/ 补充或更新对应测试。
+- 跑测试执行 pnpm test（vitest run）；新增或修改 hook 时在 `core/__tests__/` 补充或更新对应测试。
 - NPM_TOKEN 只存在于 GitHub Secrets，禁止写入仓库任何文件。

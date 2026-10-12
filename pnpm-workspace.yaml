@@ -1,10 +1,12 @@
 minimumReleaseAgeExcludePrune: true
+
 trustPolicy: no-downgrade
 # 信任降级误报豁免：早于 provenance 机制的旧版本被 no-downgrade 策略误标
 trustPolicyExclude:
   - '@eslint/core@0.10.0'
-  - 'chokidar@4.0.3'
-  - 'semver@5.7.2'
+  - chokidar@4.0.3
+  - semver@5.7.2
+
 shellEmulator: true
 
 allowBuilds:
